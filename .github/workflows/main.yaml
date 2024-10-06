@@ -1,0 +1,21 @@
+name: Deploy to Surge
+
+on:
+  push:
+    branches:
+      - master  # O main, según tu rama principal
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Surge
+        run: npm install -g surge
+
+      - name: Deploy to Surge
+        run: surge . https://paltry-lunch.surge.sh
+        env:
+          SURGE_TOKEN: ${{ secrets.surge_token }}
