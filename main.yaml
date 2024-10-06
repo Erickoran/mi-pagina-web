@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Esta línea necesita ser actualizada
+        uses: actions/checkout@v3  # Actualizado a la versión 3
       
       - name: Install Surge
         run: npm install --global surge
@@ -19,4 +19,5 @@ jobs:
         env:
           SURGE_TOKEN: ${{ secrets.surge_token }}
         run: surge . https://mi-proyecto-erick.surge.sh
+
 
